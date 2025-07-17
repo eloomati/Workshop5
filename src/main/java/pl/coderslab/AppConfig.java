@@ -29,4 +29,10 @@ public class AppConfig implements WebMvcConfigurer {
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
     }
+    // aby Spring wiedział, jak serializować obiekty do JSON.
+    // potrzebny przy wykorzystaniu biblioteki Jackson
+    @Bean
+    public org.springframework.http.converter.json.MappingJackson2HttpMessageConverter jacksonMessageConverter() {
+        return new org.springframework.http.converter.json.MappingJackson2HttpMessageConverter();
+    }
 }
